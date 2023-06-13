@@ -33,3 +33,52 @@ drawingContext.fillRect(0, 0, canvas.width, canvas.height);
         guide.insertAdjacentHTML("beforeend", "<div></div>")
     );
 }
+
+// Defininir funciones
+function handleCanvasMousedown(e) {
+    if (e.button !== 0) {
+        return;
+    }
+
+    const canvasBoundigRect = canvas.getBoundingClientRect();
+    const x = e.clientX - canvasBoundigRect.left;
+    const y = e.clientY - canvasBoundigRect.top;
+    const cellX = Math.floor(x / cellPixelLenght);
+    const cellY = Math.floor(y / cellPixelLenght);
+    const currentColor = colorHistory[`${cellX}_${cellY}`];
+
+    if (e.ctrlKey) {
+        if (currentColor) {
+            colorInput.value = currentColor;
+        }
+    } else {
+        fillCell(cellX, cellY);
+    }
+}
+
+function handleClearButtonClick() {
+    const yes = confirm("¿Deseas limpiar el Canvas?");
+
+    if (!yes) return;
+
+    drawingContext.fillStyle = "#ffffff";
+    drawingContext.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function handleToggleGuideChange() {
+    guide.style.display = toggleGuide.checked ? null: "none";
+}
+
+function fillCell(cellX, cellY) {
+    const starX = cellX * cellPixelLenght;
+    const starY = cellY * cellPixelLenght;
+
+    drawingContext.fillStyle = colorInput.value;
+    drawingContext.fillRect(starX, starY, cellPixelLenght, cellPixelLenght);
+    colorHistory[`${cellX}_${cellY}`] = colorInput.value;
+}
+
+// Ajustar funciones a elementos HTML
+canvas.addEventListener("mousedown", handleCanvasMousedown);
+clearButton.addEventListener("click", handleClearButtonClick);
+toggleGuide.addEventListener("change", handleToggleGuideChange);
