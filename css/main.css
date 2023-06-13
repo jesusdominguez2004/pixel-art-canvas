@@ -1,1 +1,26 @@
 /* Hoja CSS principal */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #333333;
+    color: #fff;
+}
+
+#canvas {
+    cursor: pointer;
+}
+
+#guide {
+    display: grid;
+    pointer-events: none;
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#guide div {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
