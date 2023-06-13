@@ -5,12 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título y hoja CSS -->
     <title>Pixel Art | Canvas</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
 </head>
 <!-- Contenido página -->
 <body>
     <h1>Pixel Art</h1>
     <p>© Jesús Alberto Domínguez Charris</p>
+
+    <!-- Canvas -->
+    <div>
+        <div id="guie"></div>
+        <canvas width="450" height="450" id="canvas"></canvas>
+    </div>
+
+    <!-- Controles -->
+    <div>
+        <label for="colorInput">Set Color: </label>
+        <input type="color" id="colorInput">
+    </div>
+
+    <div>
+        <label for="toggleGuide">Show Guide: </label>
+        <input type="checkbox" id="toggleGuide" checked>
+    </div>
+
+    <div>
+        <button type="button" id="clearButton">Clear</button>
+    </div>
 </body>
 </html>
