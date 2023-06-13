@@ -12,6 +12,7 @@ body {
 
 #canvas {
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #guide {
