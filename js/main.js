@@ -79,6 +79,6 @@ function fillCell(cellX, cellY) {
 }
 
 // Ajustar funciones a elementos HTML
-canvas.addEventListener("mousedown", handleCanvasMousedown);
+canvas.addEventListener("click", handleCanvasMousedown);
 clearButton.addEventListener("click", handleClearButtonClick);
 toggleGuide.addEventListener("change", handleToggleGuideChange);
